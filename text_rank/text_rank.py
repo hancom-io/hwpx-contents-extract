@@ -45,21 +45,11 @@ kkma = Kkma()
 file = open(strTxtPath, mode='r', encoding='utf-8')
 doc = file.read()
 file.close()
-#print("doc={}".format(doc))
-#ex_sent = kkma.sentences(doc)
-#print("ex_sent={}".format(ex_sent))
-#nouns = []
-
-
 
 print('-------------------------')
 nouns_target = Okt()
 nouns2 = nouns_target.nouns(doc)
 count2 = Counter(nouns2)
-#print("test = {}".format(count2))
-#print(text_cleaning(doc))
-#print("doc type = {}".format(type(doc)))
-#print('-------------------------')
 
 remove_char_counter = Counter({x:count2[x] for x in count2 if len(x) > 1})
 print("char_counter = {}".format(remove_char_counter))
@@ -69,15 +59,6 @@ ranked_tags = remove_char_counter.most_common(cntKeyword)
 
 taglist = pytagcloud.make_tags(ranked_tags, maxsize=80)
 
-
-#print('taglist type = {}'.format(type(taglist)))
-#pytagcloud.create_tag_image(taglist,
-#                           strImgFile,  # 생성될 시각화 파일 이름
-#                           size=(900, 600),  # 사이즈
-#                           fontname='korean', # 한글 시각화를 위해 임의의 한글 폰트 이름으로 변경 필요
-#                           rectangular=False)
-
-# strCntFile = "list_cnt.txt"
 wrfile = open(strRankFile, 'w')
 vstr = ''
 nRank = 1
@@ -85,11 +66,8 @@ nRank = 1
 for a in ranked_tags:
     vstr = vstr + str(nRank) + '. ' + str(a) + '\n'
     nRank += 1
-    # print(a)
 
 vstr = vstr.rstrip('\n')
 wrfile.writelines(vstr)
 wrfile.close()
 
-
-#webbrowser.open('wordcloud.jpg')  # 저장된 'wordcloud.jpg' 브라우저로 띄워서 보기

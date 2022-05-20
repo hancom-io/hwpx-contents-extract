@@ -10,14 +10,14 @@
 202106180608)
 * Jdk : 1.8.0 이상
 * Server RunTime : Apache Tomcat V9.0
-* Platform : Windows 또는 Linux
+* Platform : Windows
 
 
 ## 사용 방법
 - Spring Tool Suite 4를 이용하여 프로젝트를 불러오기 합니다. 
 - Sample.java 파일의 main 메서드에서 hwpx의 실제 경로로 변경합니다. 
 ```java
-      filePath = "실제 hwpx 파일의 전체 경로";
+      String filePath = "hwpx 전체 경로 설정";
 ```
 - 추출된 텍스트/이미지 정보를 확인할 수 있습니다. 
 
